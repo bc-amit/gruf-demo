@@ -15,7 +15,7 @@ gem 'gruf', git: 'git@github.com:bc-amit/gruf', ref: 'fa305f121f5d6d3d4236eba1e8
 gem 'jbuilder',       '~> 2.5'
 gem 'mysql2',         '>= 0.5'
 gem 'puma',           '~> 5.6'
-gem 'rails',          '7.0.8.1'
+gem 'rails',          '~> 7.1'
 gem 'settingslogic',  '~> 2.0'
 
 group :development, :test do
