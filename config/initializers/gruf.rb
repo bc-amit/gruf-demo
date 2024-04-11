@@ -11,6 +11,11 @@ require 'app/proto/Products_services_pb'
 Gruf.configure do |c|
   c.interceptors.use(::Gruf::Interceptors::Instrumentation::RequestLogging::Interceptor, formatter: :logstash)
   c.error_serializer = Gruf::Serializers::Errors::Json
+  c.rpc_server_options    = {
+    pool_size: ENV.fetch('GRPC_SERVER_POOL_SIZE', 100).to_i,
+    pool_keep_alive: ENV.fetch('GRPC_SERVER_POOL_KEEP_ALIVE', 1).to_i,
+    poll_period: ENV.fetch('GRPC_SERVER_POLL_PERIOD', 1).to_i
+  }.to_h.symbolize_keys
 
   unless Rails.env.test? # no need for auth in dev
     token = ::ENV.fetch('GRPC_AUTH_TOKEN', 'austin').to_s.strip
