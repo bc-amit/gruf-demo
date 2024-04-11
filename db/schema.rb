@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_08_10_220531) do
+ActiveRecord::Schema[6.1].define(version: 2017_08_10_220531) do
 
   create_table "products", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
